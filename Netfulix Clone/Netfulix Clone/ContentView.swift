@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         VStack {
             MovieListView()
+            ActorsView()
         }
-        .padding()
+        .padding(.top)
     }
 }
 

@@ -4,7 +4,6 @@
 //
 //  Created by 백대홍 on 2023/02/06.
 //
-
 import SwiftUI
 
 struct Movie: Codable, Hashable {
@@ -19,8 +18,8 @@ struct MovieResponse: Codable {
 
 struct MovieListView: View {
     @State private var Movies:[Movie] = []
-    
-    
+
+
     var body: some View {
         VStack {
             NavigationStack{
@@ -47,25 +46,25 @@ struct MovieListView: View {
                     }
                 }
             }
-            
-           
-            
-            
+
+
+
+
         }
     }
-    
-    
-    
-    
+
+
+
+
     func fetchMovieList() {
         print("fetchMovieList")
         // 1. URL
         let urlStr = "http://mynf.codershigh.com:8080/api/movies"
         let url = URL(string: urlStr)!
-        
+
         // 2. Request
         let request = URLRequest(url: url)
-        
+
         // 3. Session, Task
         
         URLSession.shared.dataTask(with: request) { data, response, error in

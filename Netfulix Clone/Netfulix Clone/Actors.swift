@@ -27,7 +27,7 @@ struct ActorsView: View {
         VStack {
             NavigationStack{
                 ScrollView(.horizontal){
-                    Hstack{
+                    HStack{
                         ForEach(Actors, id: \.self) { item in
                             AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+item.image)) { image in
                                 image.resizable()
