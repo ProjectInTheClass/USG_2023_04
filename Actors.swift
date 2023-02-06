@@ -21,13 +21,13 @@ struct ActorResponse: Codable {
 
 struct ActorsView: View {
     @State private var Actors:[Actor] = []
-    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 1)
+//    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 1)
     
     var body: some View {
         VStack {
             NavigationStack{
                 ScrollView(.horizontal){
-                    LazyHGrid(rows: columns) {
+                    Hstack{
                         ForEach(Actors, id: \.self) { item in
                             AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+item.image)) { image in
                                 image.resizable()
