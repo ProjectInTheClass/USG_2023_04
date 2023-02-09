@@ -21,13 +21,13 @@ struct ActorResponse: Codable {
 
 struct ActorsView: View {
     @State private var Actors:[Actor] = []
-//    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 1)
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     var body: some View {
         VStack {
             NavigationStack{
-                ScrollView(.horizontal){
-                    HStack{
+                ScrollView(.vertical){
+                    LazyVGrid(columns: columns) {
                         ForEach(Actors, id: \.self) { item in
                             AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+item.image)) { image in
                                 image.resizable()
@@ -39,14 +39,25 @@ struct ActorsView: View {
                     }
                 }
                 .navigationTitle("배우")
-             }
-            Button("배우 보기"){
-                fetchActorList()
+                .toolbar {
+                    ToolbarItemGroup(placement: .automatic) {
+                        Button {
+                            fetchActorList()
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
             }
-            }
-            
-            
+
+
+
+
         }
+    }
+
+    
+    
     func fetchActorList() {
         print("fetchActorList")
         // 1. URL
@@ -55,15 +66,15 @@ struct ActorsView: View {
         
         // 2. Request
         let request = URLRequest(url: url)
-            
+        
         // 3. Session, Task
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             do {
                 let ret = try JSONDecoder().decode(ActorResponse.self, from: data!)
-        //        print("ret :", ret.data)
+                //        print("ret :", ret.data)
                 for item in ret.data {
-        
+                    
                     Actors.append(item)
                 }
             }
@@ -72,9 +83,9 @@ struct ActorsView: View {
             }
         }.resume()
     }
-
-
-    }
+    
+    
+}
 
 
 struct ActorsView_Previews: PreviewProvider {

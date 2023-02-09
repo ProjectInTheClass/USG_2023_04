@@ -18,13 +18,13 @@ struct MovieResponse: Codable {
 
 struct MovieListView: View {
     @State private var Movies:[Movie] = []
-
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
             NavigationStack{
-                ScrollView(.horizontal){
-                    HStack {
+                ScrollView(.vertical){
+                    LazyVGrid(columns: columns)  {
                         ForEach(Movies, id: \.self) { item in
                             AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+item.image)) { image in
                                 image.resizable()

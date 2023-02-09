@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selection = 0
     var body: some View {
-        
-        VStack {
+        TabView(selection: $selection) {
             MovieListView()
+                .tag(0)
+                .tabItem {
+                    Text("영화 목록 보기")
+                    Image(systemName: "display")
+                }
             ActorsView()
-        }
-        .padding(.top)
+                .tag(1)
+                .tabItem {
+                    Text("배우 목록 보기")
+                    Image(systemName: "person.2")
+                }
+        }.font(.headline)
+        
     }
 }
 
