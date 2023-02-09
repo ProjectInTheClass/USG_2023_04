@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection = 0
+    @State private var selection = "영화 목록 보기"
+    //기존에는 @State private var selection = 0 
     var body: some View {
         TabView(selection: $selection) {
             MovieListView()
-                .tag(0)
+                .tag("영화 목록 보기")
                 .tabItem {
                     Text("영화 목록 보기")
                     Image(systemName: "display")
                 }
             ActorsView()
-                .tag(1)
+                .tag("배우 목록 보기")
                 .tabItem {
                     Text("배우 목록 보기")
                     Image(systemName: "person.2")
@@ -27,7 +28,6 @@ struct ContentView: View {
         
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

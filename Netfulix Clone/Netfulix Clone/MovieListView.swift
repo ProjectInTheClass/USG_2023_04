@@ -19,11 +19,11 @@ struct MovieResponse: Codable {
 struct MovieListView: View {
     @State private var Movies:[Movie] = []
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
-
+    
     var body: some View {
         VStack(alignment: .center) {
-            NavigationStack{
-                ScrollView(.vertical){
+            NavigationStack {
+                ScrollView(.vertical) {
                     LazyVGrid(columns: columns)  {
                         ForEach(Movies, id: \.self) { item in
                             AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+item.image)) { image in
@@ -38,25 +38,26 @@ struct MovieListView: View {
                 .navigationTitle("영화")
                 .onAppear(perform: fetchMovieList)
             }
-
-
-
-
+            
+            
+            
+            
         }
     }
-
-
-
-
-    func fetchMovieList() {
+    
+    
+    
+    
+    private func fetchMovieList() {
+        // 굳이 다른곳에서 쓰지도 않는데 왜? private가 아닌가요?
         print("fetchMovieList")
         // 1. URL
         let urlStr = "http://mynf.codershigh.com:8080/api/movies"
         let url = URL(string: urlStr)!
-
+        
         // 2. Request
         let request = URLRequest(url: url)
-
+        
         // 3. Session, Task
         
         URLSession.shared.dataTask(with: request) { data, response, error in
