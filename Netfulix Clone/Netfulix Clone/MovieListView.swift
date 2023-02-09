@@ -36,15 +36,7 @@ struct MovieListView: View {
                     }
                 }
                 .navigationTitle("영화")
-                .toolbar {
-                    ToolbarItemGroup(placement: .automatic) {
-                        Button {
-                            fetchMovieList()
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                    }
-                }
+                .onAppear(perform: fetchMovieList)
             }
 
 

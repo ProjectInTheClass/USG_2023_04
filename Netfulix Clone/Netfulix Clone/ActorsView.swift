@@ -39,15 +39,7 @@ struct ActorsView: View {
                     }
                 }
                 .navigationTitle("배우")
-                .toolbar {
-                    ToolbarItemGroup(placement: .automatic) {
-                        Button {
-                            fetchActorList()
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                    }
-                }
+                .onAppear(perform: fetchActorList)
             }
 
 
