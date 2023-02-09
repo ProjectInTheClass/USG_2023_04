@@ -26,11 +26,13 @@ struct MovieListView: View {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: columns)  {
                         ForEach(Movies, id: \.self) { item in
-                            AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+item.image)) { image in
-                                image.resizable()
-                                    .frame(width: 150, height:200)
-                            } placeholder: {
-                                ProgressView()
+                            NavigationLink(destination: DetailView(movie: Movie(title: "수리남", image: "asdasd"))) {
+                                AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+item.image)) { image in
+                                    image.resizable()
+                                        .frame(width: 150, height:200)
+                                } placeholder: {
+                                    ProgressView()
+                                }
                             }
                         }
                     }
