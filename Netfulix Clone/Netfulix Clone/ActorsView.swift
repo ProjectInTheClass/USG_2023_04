@@ -21,13 +21,13 @@ struct ActorResponse: Codable {
 
 struct ActorsView: View {
     @State private var Actors:[Actor] = []
-    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 1)
     
     var body: some View {
         VStack {
             NavigationStack{
-                ScrollView(.vertical){
-                    LazyVGrid(columns: columns) {
+                ScrollView(.horizontal){
+                    LazyHGrid(rows: columns) {
                         ForEach(Actors, id: \.self) { item in
                             AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+item.image)) { image in
                                 image.resizable()
@@ -41,10 +41,6 @@ struct ActorsView: View {
                 .navigationTitle("배우")
                 .onAppear(perform: fetchActorList)
             }
-
-
-
-
         }
     }
 

@@ -11,7 +11,7 @@ import SwiftUI
 struct Netfulix_CloneApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingView(ShowOnboarding: .constant(true))
         }
     }
 }

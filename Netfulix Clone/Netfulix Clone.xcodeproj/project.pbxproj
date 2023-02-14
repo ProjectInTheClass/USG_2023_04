@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC1D18A1299B56D600ADB9A0 /* OnboardingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A0299B56D600ADB9A0 /* OnboardingPageView.swift */; };
 		ACC26D6929912D5C00BCECEA /* Netfulix_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC26D6829912D5C00BCECEA /* Netfulix_CloneApp.swift */; };
 		ACC26D6B29912D5C00BCECEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC26D6A29912D5C00BCECEA /* ContentView.swift */; };
 		ACC26D6D29912D5D00BCECEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC26D6C29912D5D00BCECEA /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC1D18A0299B56D600ADB9A0 /* OnboardingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
 		ACC26D6529912D5C00BCECEA /* Netfulix Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netfulix Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC26D6829912D5C00BCECEA /* Netfulix_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netfulix_CloneApp.swift; sourceTree = "<group>"; };
 		ACC26D6A29912D5C00BCECEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				ACC26D7629912DAA00BCECEA /* MovieListView.swift */,
 				ACC26D7929912EF500BCECEA /* ActorsView.swift */,
 				ACF6F07C299A7A1F005604E6 /* OnboardingView.swift */,
+				AC1D18A0299B56D600ADB9A0 /* OnboardingPageView.swift */,
 				ACC26D6C29912D5D00BCECEA /* Assets.xcassets */,
 				ACC26D6E29912D5D00BCECEA /* Preview Content */,
 			);
@@ -152,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC26D6B29912D5C00BCECEA /* ContentView.swift in Sources */,
+				AC1D18A1299B56D600ADB9A0 /* OnboardingPageView.swift in Sources */,
 				ACC26D6929912D5C00BCECEA /* Netfulix_CloneApp.swift in Sources */,
 				ACC26D7729912DAA00BCECEA /* MovieListView.swift in Sources */,
 				ACF6F07D299A7A1F005604E6 /* OnboardingView.swift in Sources */,

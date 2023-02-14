@@ -30,9 +30,3 @@ struct DetailView: View {
             }
         }
     }
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(movie: Movie(title: "수리남", image: "/poster/1663012985184.jpeg"))
-    }
-}
