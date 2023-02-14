@@ -7,9 +7,8 @@
 import SwiftUI
 
 struct Movie: Codable, Hashable {
-    var title: String
-    var image: String
-    var genres: [String]
+    let title: String
+    let image: String
 }
 
 struct MovieResponse: Codable {
@@ -18,23 +17,21 @@ struct MovieResponse: Codable {
 
 
 struct MovieListView: View {
-    @State private var movies: [Movie] = []
-    @AppStorage("_Firstrun") var Firstrun: Bool = false
-    @State var ShowOnboarding: Bool = true
-
-    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 1)
-    var genre: String
+    @State private var Movies:[Movie] = []
     
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+    @AppStorage("_Firstrun") var Firstrun: Bool = true
+    @State var ShowOnboarding: Bool = true
     var body: some View {
         VStack(alignment: .center) {
             NavigationStack {
                 ScrollView(.horizontal) {
-                    LazyVGrid(columns: columns) {
-                        ForEach(movies, id: \.self) { movie in
-                            NavigationLink(destination: DetailView(movie: movie)) {
-                                AsyncImage(url: URL(string: "http://mynf.codershigh.com:8080" + movie.image)) { image in
+                    LazyHGrid(rows: columns)  {
+                        ForEach(Movies, id: \.self) { item in
+                            NavigationLink(destination: DetailView(movie: Movie(title: "수리남", image: "asdasd"))) {
+                                AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+item.image)) { image in
                                     image.resizable()
-                                        .frame(width: 150, height: 200)
+                                        .frame(width: 150, height:200)
                                 } placeholder: {
                                     ProgressView()
                                 }
@@ -42,34 +39,54 @@ struct MovieListView: View {
                         }
                     }
                 }
-                .navigationTitle("Movie")
+                .navigationTitle("영화")
                 .onAppear(perform: fetchMovieList)
             }
+            
+          
+            
+           
         }
         .fullScreenCover(isPresented: $Firstrun) {
-            OnboardingView(ShowOnboarding: $Firstrun)
+            OnboardingMainView(ShowOnboarding: $Firstrun)
         }
+        
     }
     
-    func fetchMovieList() {
-        guard let url = URL(string: "http://mynf.codershigh.com:8080/api/movies?genre=\(genre)") else { return }
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
+    
+    
+    
+    private func fetchMovieList() {
+        // 굳이 다른곳에서 쓰지도 않는데 왜? private가 아닌가요?
+        print("fetchMovieList")
+        // 1. URL
+        let urlStr = "http://mynf.codershigh.com:8080/api/movies"
+        let url = URL(string: urlStr)!
+        
+        // 2. Request
+        let request = URLRequest(url: url)
+        
+        // 3. Session, Task
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
             do {
-                let movies = try JSONDecoder().decode([Movie].self, from: data)
-                DispatchQueue.main.async {
-                    self.movies = movies
+                let ret = try JSONDecoder().decode(MovieResponse.self, from: data!)
+                //        print("ret :", ret.data)
+                for item in ret.data {
+                    Movies.append(item)
                 }
-            } catch let error {
-                print(error)
+            }
+            catch {
+                print("Error", error)
             }
         }.resume()
     }
 }
 
+
+
 struct MovieListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(genre: "action")
+        MovieListView()
     }
 }
-
