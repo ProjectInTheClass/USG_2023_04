@@ -32,7 +32,7 @@ struct OnboardingPage2: View {
                 VStack(alignment: .center) {
                     Image("온보딩2")
                         .resizable()
-                        .frame(width: 200, height: 200)
+                        .frame(width: 300, height: 300)
                     Text("3, 2, 1....저장 시작!")
                         .font(.title)
                         .bold()

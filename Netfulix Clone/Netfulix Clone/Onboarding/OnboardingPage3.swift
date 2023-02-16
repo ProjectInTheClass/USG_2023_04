@@ -28,11 +28,13 @@ struct OnboardingPage3: View {
                         .foregroundColor(.white)
                         .bold()
                 }
+               
                 .padding()
                 VStack(alignment: .center) {
                     Image("온보딩3")
                         .resizable()
                         .frame(width: 300, height: 300)
+                    Spacer(minLength: 30)
                     Text("약정도 광고도 없다")
                         .font(.title2)
                         .bold()
@@ -44,7 +46,7 @@ struct OnboardingPage3: View {
                         .foregroundColor(.white)
                         .padding()
                     
-                    Spacer()
+                    Spacer(minLength: 10)
                 }
                 
                 
