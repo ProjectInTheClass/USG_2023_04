@@ -42,7 +42,7 @@ struct MovieListView: View {
                     ForEach(moviesByGenre.keys.sorted(), id: \.self) { genre in
                         VStack(alignment: .leading) {
                             Text(genre)
-                                .font(.headline)
+                                .font(.headline.bold())
                                 .padding(.horizontal)
                                 .padding(.top)
                             ScrollView(.horizontal, showsIndicators: false) {
@@ -66,7 +66,11 @@ struct MovieListView: View {
                     .navigationTitle("Movie")
                     .onAppear(perform: fetchMovieList)
                 }
+                .fullScreenCover(isPresented: $Firstrun) {
+                    OnboardingMainView(ShowOnboarding: $Firstrun)
+                }
             }
+           
         }
     }
     
