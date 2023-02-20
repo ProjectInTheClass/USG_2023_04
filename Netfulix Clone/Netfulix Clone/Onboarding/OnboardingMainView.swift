@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingMainView: View {
     @Binding var ShowOnboarding: Bool
-    var body: some View {
+    var body: some View { 
         TabView {
             OnboardingPage1(ShowOnboarding: $ShowOnboarding,showsDismissButton: true)
             
