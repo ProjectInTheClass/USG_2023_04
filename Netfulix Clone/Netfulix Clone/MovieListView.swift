@@ -48,7 +48,7 @@ struct MovieListView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack {
                                     ForEach(moviesByGenre[genre] ?? [], id: \.self) { movie in
-                                        NavigationLink(destination: ContentView()) {
+                                        NavigationLink(destination: DetailView(movie: movie)) {
                                             AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)) { image in
                                                 image.resizable()
                                                     .frame(width: 150, height:200)

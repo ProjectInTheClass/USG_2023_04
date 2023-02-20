@@ -8,25 +8,32 @@
 import SwiftUI
 
 struct DetailView: View {
-    let movie: Movie
+    var movie: Movie
 
         var body: some View {
-            VStack(alignment: .center) {
-                AsyncImage(url: URL(string: "http://mynf.codershigh.com:8080" + movie.image)) { image in
-                    image.resizable()
-                        .frame(width: 300, height:400)
-                } placeholder: {
-                    ProgressView()
-                }
-
-                Text(movie.title)
-                    .font(.title)
-                    .padding(.bottom, 20)
-
-                Text("Description of the movie...")
-                    .padding(.bottom, 20)
-
-                Text("Comments about the movie...")
-            }
+                    HStack{
+                        Spacer()
+                        VStack(alignment:.leading, spacing: 30){
+                            HStack{
+                                AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image))
+                                    .frame(width: 100, height: 150)
+            
+                            }
+            
+                            VStack(alignment: .leading){
+                                Text(movie.title)
+                                    .font(.largeTitle)
+                                HStack{
+                                    Text("2021")
+                                    Text("장르")
+                                }
+            
+            
+                            }.padding()
+            
+                                Spacer()
+                        }.frame(maxWidth: .infinity)
+                        Spacer()
+                    }
         }
     }
