@@ -15,8 +15,15 @@ struct DetailView: View {
                         Spacer()
                         VStack(alignment:.leading, spacing: 30){
                             HStack{
-                                AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image))
-                                    .frame(width: 100, height: 150)
+                                AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)){
+                                    image in
+                                    image.resizable()
+                                        .frame(width: 100, height: 150)
+                                    
+                                }placeholder: {
+                                    ProgressView()
+                                }
+                                    
             
                             }
             
@@ -25,7 +32,9 @@ struct DetailView: View {
                                     .font(.largeTitle)
                                 HStack{
                                     Text("2021")
-                                    Text("장르")
+                                    ForEach(movie.genre, id: \.self) { genre in
+                                        Text(genre)
+                                    }
                                 }
             
             
