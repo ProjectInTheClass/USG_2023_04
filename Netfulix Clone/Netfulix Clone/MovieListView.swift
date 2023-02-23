@@ -21,7 +21,8 @@ struct MovieResponse: Codable {
 struct MovieListView: View {
     @State private var Movies:[Movie] = []
     var moviesByGenre: [String: [Movie]] {
-        var moviesByGenre = [String: [Movie]]() //MoviesByGeneric 사전은 장르 이름을 Movie 개체의 배열에 매핑하는 빈 사전으로 초기화됩니다.
+        var moviesByGenre = [String: [Movie]]() //MoviesByGeneric 사전은 장르 이름을 Movie 개체의 배열로 초기화한다.
+        
         for movie in Movies where !movie.genre.isEmpty { //영화 배열 내부 각 Movie개체에 대해 반복문을 이용해서 isEmpty로 장르부분이 비어있지는 않는지 검사한다.
             for genre in movie.genre {
                 if moviesByGenre[genre] == nil, genre !=  "" { //장르에 대한 키값이 moviesByGenre에 있는지 확인하고 없다면 새로운 쌍을 만든다.
@@ -33,6 +34,7 @@ struct MovieListView: View {
         }
         return moviesByGenre
     }
+    
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     @AppStorage("_Firstrun") var Firstrun: Bool = true
     @State var ShowOnboarding: Bool = true

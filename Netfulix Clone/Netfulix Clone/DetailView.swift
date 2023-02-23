@@ -27,8 +27,8 @@ struct DetailView: View {
                         image in
                         image.resizable()
                             .frame(width:400, height: 400)
-                            
-                            
+                        
+                        
                     }placeholder: {
                         ProgressView()
                     }
@@ -46,13 +46,11 @@ struct DetailView: View {
                     }
                     ForEach(movieDetail?.actors ?? [], id: \.self) {
                         item in
-                        HStack{
-                            Text(item.name+",").border(.blue)
+                        HStack {
+                            Text(item.name+",")
                         }
                     }
-                    
-                    
-                    
+                   
                 }.padding()
                 
                 Spacer()
@@ -61,12 +59,12 @@ struct DetailView: View {
         }.onAppear(perform: fetchDetailList)
     }
     func fetchDetailList() {
-    
+        
         let movieUrlStr = "http://mynf.codershigh.com:8080/api/movies/"+movie._id
         let movieUrl = URL(string: movieUrlStr)!
-
+        
         let movieRequest = URLRequest(url: movieUrl)
-
+        
         URLSession.shared.dataTask(with: movieRequest) { data, response, error in
             do {
                 let ret = try JSONDecoder().decode(MovieDetailResponse.self, from: data!)
@@ -78,6 +76,15 @@ struct DetailView: View {
                 print("Error", error)
             }
         }.resume()
-}
+    }
 }
 
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailView(movie: Movie(
+            _id: "631f9079842a834b759419d9",
+            title: "수리남",
+            image: "/poster/1663012985184.jpeg", genre: ["드라마","범죄","스릴러"]
+        ))
+    }
+}
