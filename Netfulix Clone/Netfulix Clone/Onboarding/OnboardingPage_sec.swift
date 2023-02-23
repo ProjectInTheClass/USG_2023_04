@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingPage2: View {
-    @Binding var ShowOnboarding: Bool
+    @Binding var showOnboarding: Bool
     let showsDismissButton: Bool
     var body: some View {
         ZStack {
@@ -16,19 +16,7 @@ struct OnboardingPage2: View {
                 .edgesIgnoringSafeArea([.all])
             
             VStack(alignment: .center) {
-                HStack {
-                    Text("NETFULIX")
-                        .font(.title.bold())
-                        .foregroundColor(.red)
-                    Spacer()
-                    Text("개인 정보")
-                        .foregroundColor(.white)
-                        .bold()
-                    Text("고객 센터")
-                        .foregroundColor(.white)
-                        .bold()
-                }
-                .padding()
+                Onboarding_Netfulix()
                 VStack(alignment: .center) {
                     Image("온보딩2")
                         .resizable()
@@ -52,7 +40,7 @@ struct OnboardingPage2: View {
                     // 온보딩이 끝나고 메인 페이지로 넘어가기 위한 버튼
                     // ShowOnboarding 값을 false로 바꾸기 때문에 최초 실행 이후에는 onboardingview를 보여주지 않는다.
                     Button(action: {
-                        ShowOnboarding.toggle()
+                        showOnboarding.toggle()
                     }, label: {
                         Text("Get Start")
                             .foregroundColor(.white)
@@ -72,6 +60,6 @@ struct OnboardingPage2: View {
 
 struct OnboardingPage2_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingPage2(ShowOnboarding: .constant(true),showsDismissButton: true)
+        OnboardingPage2(showOnboarding: .constant(true),showsDismissButton: true)
     }
 }

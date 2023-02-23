@@ -8,25 +8,21 @@
 import SwiftUI
 
 struct OnboardingMainView: View {
-    @Binding var ShowOnboarding: Bool
+    @Binding var showOnboarding: Bool
     var body: some View { 
         TabView {
-            OnboardingPage1(ShowOnboarding: $ShowOnboarding,showsDismissButton: true)
-            
-            OnboardingPage2(ShowOnboarding: $ShowOnboarding,showsDismissButton: true)
-            
-            OnboardingPage3(ShowOnboarding: $ShowOnboarding,showsDismissButton: true)
-            
-            OnboardingPage4(ShowOnboarding: $ShowOnboarding,showsDismissButton: true)
-
+            OnboardingPage1(showOnboarding: $showOnboarding,showsDismissButton: true)
+            OnboardingPage2(showOnboarding: $showOnboarding,showsDismissButton: true)
+            OnboardingPage3(showOnboarding: $showOnboarding,showsDismissButton: true)
+            OnboardingPage4(showOnboarding: $showOnboarding,showsDismissButton: true)
         }
         .tabViewStyle(PageTabViewStyle())
-        .ignoresSafeArea()
+        .ignoresSafeArea() 
     }
 }
 
 struct OnboardingMainView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingMainView(ShowOnboarding: .constant(true))
+        OnboardingMainView(showOnboarding: .constant(true))
     }
 }

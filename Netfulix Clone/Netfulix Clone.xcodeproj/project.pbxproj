@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC1D18A3299B8DED00ADB9A0 /* OnboardingPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A2299B8DED00ADB9A0 /* OnboardingPage1.swift */; };
-		AC1D18A6299B93A100ADB9A0 /* OnboardingPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A5299B93A100ADB9A0 /* OnboardingPage2.swift */; };
-		AC1D18A8299B949D00ADB9A0 /* OnboardingPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A7299B949D00ADB9A0 /* OnboardingPage3.swift */; };
-		AC1D18AA299B954300ADB9A0 /* OnboardingPage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A9299B954300ADB9A0 /* OnboardingPage4.swift */; };
+		AC1D18A3299B8DED00ADB9A0 /* OnboardingPage_first.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A2299B8DED00ADB9A0 /* OnboardingPage_first.swift */; };
+		AC1D18A6299B93A100ADB9A0 /* OnboardingPage_sec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A5299B93A100ADB9A0 /* OnboardingPage_sec.swift */; };
+		AC1D18A8299B949D00ADB9A0 /* OnboardingPage_thi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A7299B949D00ADB9A0 /* OnboardingPage_thi.swift */; };
+		AC1D18AA299B954300ADB9A0 /* OnboardingPage_for.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A9299B954300ADB9A0 /* OnboardingPage_for.swift */; };
+		AC9D57EC29A79AD0003F7486 /* Onboarding_Netfulix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57EB29A79AD0003F7486 /* Onboarding_Netfulix.swift */; };
 		ACC26D6929912D5C00BCECEA /* Netfulix_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC26D6829912D5C00BCECEA /* Netfulix_CloneApp.swift */; };
 		ACC26D6B29912D5C00BCECEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC26D6A29912D5C00BCECEA /* ContentView.swift */; };
 		ACC26D6D29912D5D00BCECEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC26D6C29912D5D00BCECEA /* Assets.xcassets */; };
@@ -22,10 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC1D18A2299B8DED00ADB9A0 /* OnboardingPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage1.swift; sourceTree = "<group>"; };
-		AC1D18A5299B93A100ADB9A0 /* OnboardingPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage2.swift; sourceTree = "<group>"; };
-		AC1D18A7299B949D00ADB9A0 /* OnboardingPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage3.swift; sourceTree = "<group>"; };
-		AC1D18A9299B954300ADB9A0 /* OnboardingPage4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage4.swift; sourceTree = "<group>"; };
+		AC1D18A2299B8DED00ADB9A0 /* OnboardingPage_first.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage_first.swift; sourceTree = "<group>"; };
+		AC1D18A5299B93A100ADB9A0 /* OnboardingPage_sec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage_sec.swift; sourceTree = "<group>"; };
+		AC1D18A7299B949D00ADB9A0 /* OnboardingPage_thi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage_thi.swift; sourceTree = "<group>"; };
+		AC1D18A9299B954300ADB9A0 /* OnboardingPage_for.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage_for.swift; sourceTree = "<group>"; };
+		AC9D57EB29A79AD0003F7486 /* Onboarding_Netfulix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_Netfulix.swift; sourceTree = "<group>"; };
 		ACC26D6529912D5C00BCECEA /* Netfulix Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netfulix Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC26D6829912D5C00BCECEA /* Netfulix_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netfulix_CloneApp.swift; sourceTree = "<group>"; };
 		ACC26D6A29912D5C00BCECEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,10 +55,11 @@
 			isa = PBXGroup;
 			children = (
 				ACF6F07C299A7A1F005604E6 /* OnboardingMainView.swift */,
-				AC1D18A2299B8DED00ADB9A0 /* OnboardingPage1.swift */,
-				AC1D18A5299B93A100ADB9A0 /* OnboardingPage2.swift */,
-				AC1D18A7299B949D00ADB9A0 /* OnboardingPage3.swift */,
-				AC1D18A9299B954300ADB9A0 /* OnboardingPage4.swift */,
+				AC9D57EB29A79AD0003F7486 /* Onboarding_Netfulix.swift */,
+				AC1D18A2299B8DED00ADB9A0 /* OnboardingPage_first.swift */,
+				AC1D18A5299B93A100ADB9A0 /* OnboardingPage_sec.swift */,
+				AC1D18A7299B949D00ADB9A0 /* OnboardingPage_thi.swift */,
+				AC1D18A9299B954300ADB9A0 /* OnboardingPage_for.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -172,15 +175,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC26D6B29912D5C00BCECEA /* ContentView.swift in Sources */,
-				AC1D18A3299B8DED00ADB9A0 /* OnboardingPage1.swift in Sources */,
+				AC1D18A3299B8DED00ADB9A0 /* OnboardingPage_first.swift in Sources */,
 				ACC26D6929912D5C00BCECEA /* Netfulix_CloneApp.swift in Sources */,
-				AC1D18AA299B954300ADB9A0 /* OnboardingPage4.swift in Sources */,
-				AC1D18A6299B93A100ADB9A0 /* OnboardingPage2.swift in Sources */,
+				AC1D18AA299B954300ADB9A0 /* OnboardingPage_for.swift in Sources */,
+				AC9D57EC29A79AD0003F7486 /* Onboarding_Netfulix.swift in Sources */,
+				AC1D18A6299B93A100ADB9A0 /* OnboardingPage_sec.swift in Sources */,
 				ACC26D7729912DAA00BCECEA /* MovieListView.swift in Sources */,
 				ACF6F07D299A7A1F005604E6 /* OnboardingMainView.swift in Sources */,
 				ACD47AEA29953BA20057C9C1 /* DetailView.swift in Sources */,
 				ACC26D7A29912EF500BCECEA /* ActorsView.swift in Sources */,
-				AC1D18A8299B949D00ADB9A0 /* OnboardingPage3.swift in Sources */,
+				AC1D18A8299B949D00ADB9A0 /* OnboardingPage_thi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,14 +21,14 @@ struct MovieResponse: Codable {
 struct MovieListView: View {
     @State private var Movies:[Movie] = []
     var moviesByGenre: [String: [Movie]] {
-        var moviesByGenre = [String: [Movie]]() //MoviesByGeneric 사전은 장르 이름을 Movie 개체의 배열로 초기화한다.
+        var moviesByGenre = [String: [Movie]]() //moviesByGenre는 장르 이름을 Movie 개체의 배열로 초기화한다.
         
         for movie in Movies where !movie.genre.isEmpty { //영화 배열 내부 각 Movie개체에 대해 반복문을 이용해서 isEmpty로 장르부분이 비어있지는 않는지 검사한다.
             for genre in movie.genre {
-                if moviesByGenre[genre] == nil, genre !=  "" { //장르에 대한 키값이 moviesByGenre에 있는지 확인하고 없다면 새로운 쌍을 만든다.
+                if moviesByGenre[genre] == nil, genre !=  "" { // moviesByGenre 사전에 반복되는 현재 장르에 대한 항목이 아직 없는지, 장르가 빈 문자열이 아닌지 확인합니다. 이 두 조건이 모두 참이면 장르를 키로 하고 현재 영화를 값으로 포함하는 배열을 사용하여 moviesByGenre에 새 항목을 만듭니다.
                     moviesByGenre[genre] = [movie]
                 } else {
-                    moviesByGenre[genre]?.append(movie) //이미 값이 존재한다면 장르의 영화 배열에 추가한다.
+                    moviesByGenre[genre]?.append(movie) //현재 장르에 대한 항목이 이미 있는 경우 실행됩니다. 이 경우 moviesByGenre의 기존 장르키와 연결된 배열에 현재 movie를 추가한다.
                 }
             }
         }
@@ -37,7 +37,7 @@ struct MovieListView: View {
     
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     @AppStorage("_Firstrun") var Firstrun: Bool = true
-    @State var ShowOnboarding: Bool = true
+    @State var showOnboarding: Bool = true
     var body: some View {
         VStack(alignment: .center) {
             NavigationStack {
@@ -71,7 +71,7 @@ struct MovieListView: View {
                     .onAppear(perform: fetchMovieList)
                 }
                 .fullScreenCover(isPresented: $Firstrun) {
-                    OnboardingMainView(ShowOnboarding: $Firstrun)
+                    OnboardingMainView(showOnboarding: $Firstrun)
                 }
             }
            
