@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct Movie: Codable, Hashable {
+    let _id: String
     let title: String
     let image: String
     let genre: [String]
