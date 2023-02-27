@@ -29,6 +29,8 @@ struct DetailView: View {
     @State var movieDetail:MovieDetail? = nil
     @State var movieComment:[Comment]? = nil
     
+    @State var showModal = false
+    
     var body: some View {
         GeometryReader { geometry in
             VStack{
@@ -72,10 +74,19 @@ struct DetailView: View {
                                 Text(item.name+",")
                                 
                             }
+                            
+                            Button {
+                                showModal = true
+                            } label: {
+                                Text("더보기")
+                            }
                         }
                         
                        
                     }.padding()
+                        .sheet(isPresented: $showModal) {
+                            ActorModalView(isClosed: $showModal)
+                        }
                     
                     ScrollView{
                         VStack(alignment: .leading) {
