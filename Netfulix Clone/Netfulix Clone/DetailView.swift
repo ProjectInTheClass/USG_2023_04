@@ -9,53 +9,101 @@ import SwiftUI
 struct MovieDetail:Codable,Hashable{
     let year: Int
     let actors:[Actor]
+    let comments:[Comment]
 }
 
 struct MovieDetailResponse:Codable{
     let data:MovieDetail
 }
 
+struct Comment:Codable, Hashable{
+    let _id: String
+    let userId: String
+    let name: String
+    let text: String
+    let rating:Double
+}
+
 struct DetailView: View {
     var movie: Movie
     @State var movieDetail:MovieDetail? = nil
+    @State var movieComment:[Comment]? = nil
     
     var body: some View {
-        ScrollView {
-            VStack(alignment:.center, spacing: 30) {
-                HStack{
-                    AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)){
-                        image in
-                        image.resizable()
-                            .frame(width:400, height: 400)
-                        
-                        
-                    }placeholder: {
-                        ProgressView()
+        GeometryReader { geometry in
+            VStack{
+                VStack(alignment:.leading, spacing: 0) {
+                    ZStack{
+                        AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)){
+                            image in
+                            image.resizable()
+                                .frame(width:geometry.size.width, height: 300)
+                                .opacity(0.4)
+                            
+                            
+                        }placeholder: {
+                            ProgressView()
+                        }
+                        AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)){
+                            image in
+                            image.resizable()
+                                .frame(width:150, height: 200)
+                            
+                            
+                        }placeholder: {
+                            ProgressView()
+                        }
                     }
-                }
-                
-                VStack(alignment: .center) {
-                    Text(movie.title)
-                        .font(.largeTitle)
-                    Text(String(movieDetail?.year ?? 2021))
+                    
+                    VStack(alignment: .leading) {
+                        Text(movie.title)
+                            .font(.largeTitle)
+                        Text(String(movieDetail?.year ?? 2021))
+                        HStack{
+                            Text("장르:")
+                            ForEach(movie.genre, id: \.self) { genre in
+                                Text(genre)
+                            }
+                        }
+                        HStack{
+                            Text("출연: ")
+                            ForEach(movieDetail?.actors ?? [], id: \.self) {
+                                item in
+                                Text(item.name+",")
+                                
+                            }
+                        }
+                        
+                       
+                    }.padding()
+                    
+                    ScrollView{
+                        VStack(alignment: .leading) {
+                            ForEach(movieComment ?? [], id: \.self) {
+                                item in
+                                VStack{
+                                    HStack(alignment: .top){
+                                        Text(item.name+":")
+                                        Text(item.text.prefix(15)+(item.text.count > 15 ? "...":""))
+                                        Spacer()
+                                        Text("평점: "+String(format: "%0.1f", item.rating))
+                                    }
+                                }//.background(Color.gray)
+  
+                            }.border(.gray.opacity(0.3))
+                        }
+                        
+                    }
                     HStack{
-                        Text("장르:")
-                        ForEach(movie.genre, id: \.self) { genre in
-                            Text(genre)
-                        }
+                        Text("ID: ")
+                        
                     }
-                    ForEach(movieDetail?.actors ?? [], id: \.self) {
-                        item in
-                        HStack {
-                            Text(item.name+",")
-                        }
-                    }
-                   
-                }.padding()
-                
+
+                    Spacer()
+                }.frame(maxWidth: .infinity)
                 Spacer()
-            }.frame(maxWidth: .infinity)
-            Spacer()
+        }
+        
         }.onAppear(perform: fetchDetailList)
     }
     func fetchDetailList() {
@@ -69,8 +117,7 @@ struct DetailView: View {
             do {
                 let ret = try JSONDecoder().decode(MovieDetailResponse.self, from: data!)
                 movieDetail = ret.data
-                print(movieDetail?.year)
-                print(movieDetail?.actors)
+                movieComment = ret.data.comments
                 
             } catch {
                 print("Error", error)
