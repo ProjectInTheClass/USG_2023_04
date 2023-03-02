@@ -34,7 +34,16 @@ struct MovieListView: View {
         }
         return moviesByGenre
     }
-    
+    private var videos: [Video] = {
+        guard let path = Bundle.main.resourcePath, let files = try? FileManager.default.contentsOfDirectory(atPath: path) else { return [] }
+        var videos: [Video] = []
+        for fileName in files where fileName.hasSuffix("mp4") {
+            let videoName = fileName.replacingOccurrences(of: ".mp4", with: "")
+            let video = Video(videoName: videoName)
+            videos.append(video)
+        }
+        return videos
+    }()
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     @AppStorage("_Firstrun") var Firstrun: Bool = true
     @State var showOnboarding: Bool = true
@@ -43,7 +52,9 @@ struct MovieListView: View {
             VStack(alignment: .center) {
                 Onboarding_Netfulix()
                 NavigationStack {
-                    
+                    NavigationLink(destination: VideoPlayView(video: videos[0])) {
+                        VideoCardView(video: videos[0])
+                    }
                     ScrollView {
                         ForEach(moviesByGenre.keys.sorted(), id: \.self) { genre in
                             VStack(alignment: .leading) {

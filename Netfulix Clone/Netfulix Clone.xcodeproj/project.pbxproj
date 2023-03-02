@@ -12,7 +12,10 @@
 		AC1D18A8299B949D00ADB9A0 /* OnboardingPage_thi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A7299B949D00ADB9A0 /* OnboardingPage_thi.swift */; };
 		AC1D18AA299B954300ADB9A0 /* OnboardingPage_for.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A9299B954300ADB9A0 /* OnboardingPage_for.swift */; };
 		AC8EA38729B0C93700987057 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EA38629B0C93700987057 /* PlayerViewModel.swift */; };
-		AC8EA38B29B0C99400987057 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EA38A29B0C99400987057 /* Model.swift */; };
+		AC8EA38B29B0C99400987057 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EA38A29B0C99400987057 /* VideoModel.swift */; };
+		AC8EA39129B0CD5E00987057 /* VideoPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EA39029B0CD5E00987057 /* VideoPlayView.swift */; };
+		AC8EA39329B0CD7200987057 /* VideoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EA39229B0CD7200987057 /* VideoCardView.swift */; };
+		AC8EA39729B0D0B700987057 /* 넷플릭스로 통하는 세상.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AC8EA39629B0D0B700987057 /* 넷플릭스로 통하는 세상.mp4 */; };
 		AC9D57EC29A79AD0003F7486 /* Onboarding_Netfulix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57EB29A79AD0003F7486 /* Onboarding_Netfulix.swift */; };
 		ACC26D6929912D5C00BCECEA /* Netfulix_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC26D6829912D5C00BCECEA /* Netfulix_CloneApp.swift */; };
 		ACC26D6D29912D5D00BCECEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC26D6C29912D5D00BCECEA /* Assets.xcassets */; };
@@ -29,7 +32,10 @@
 		AC1D18A7299B949D00ADB9A0 /* OnboardingPage_thi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage_thi.swift; sourceTree = "<group>"; };
 		AC1D18A9299B954300ADB9A0 /* OnboardingPage_for.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage_for.swift; sourceTree = "<group>"; };
 		AC8EA38629B0C93700987057 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
-		AC8EA38A29B0C99400987057 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AC8EA38A29B0C99400987057 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		AC8EA39029B0CD5E00987057 /* VideoPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayView.swift; sourceTree = "<group>"; };
+		AC8EA39229B0CD7200987057 /* VideoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCardView.swift; sourceTree = "<group>"; };
+		AC8EA39629B0D0B700987057 /* 넷플릭스로 통하는 세상.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "넷플릭스로 통하는 세상.mp4"; sourceTree = "<group>"; };
 		AC9D57EB29A79AD0003F7486 /* Onboarding_Netfulix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_Netfulix.swift; sourceTree = "<group>"; };
 		ACC26D6529912D5C00BCECEA /* Netfulix Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netfulix Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC26D6829912D5C00BCECEA /* Netfulix_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netfulix_CloneApp.swift; sourceTree = "<group>"; };
@@ -77,9 +83,27 @@
 		AC8EA38929B0C98000987057 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AC8EA38A29B0C99400987057 /* Model.swift */,
+				AC8EA38A29B0C99400987057 /* VideoModel.swift */,
+				AC8EA38F29B0CD4700987057 /* View */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AC8EA38C29B0CCD400987057 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				AC8EA39629B0D0B700987057 /* 넷플릭스로 통하는 세상.mp4 */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		AC8EA38F29B0CD4700987057 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC8EA39029B0CD5E00987057 /* VideoPlayView.swift */,
+				AC8EA39229B0CD7200987057 /* VideoCardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		ACC26D5C29912D5C00BCECEA = {
@@ -110,6 +134,7 @@
 				AC8EA38829B0C94400987057 /* ViewModel */,
 				AC1D18A4299B8DF400ADB9A0 /* Onboarding */,
 				ACC26D6C29912D5D00BCECEA /* Assets.xcassets */,
+				AC8EA38C29B0CCD400987057 /* Video */,
 				ACC26D6E29912D5D00BCECEA /* Preview Content */,
 			);
 			path = "Netfulix Clone";
@@ -182,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC26D7029912D5D00BCECEA /* Preview Assets.xcassets in Resources */,
+				AC8EA39729B0D0B700987057 /* 넷플릭스로 통하는 세상.mp4 in Resources */,
 				ACC26D6D29912D5D00BCECEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,11 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC8EA39129B0CD5E00987057 /* VideoPlayView.swift in Sources */,
 				F43A761229ACD90C0023A0A4 /* ActorModalView.swift in Sources */,
 				AC1D18A3299B8DED00ADB9A0 /* OnboardingPage_first.swift in Sources */,
 				ACC26D6929912D5C00BCECEA /* Netfulix_CloneApp.swift in Sources */,
-				AC8EA38B29B0C99400987057 /* Model.swift in Sources */,
+				AC8EA38B29B0C99400987057 /* VideoModel.swift in Sources */,
 				AC1D18AA299B954300ADB9A0 /* OnboardingPage_for.swift in Sources */,
+				AC8EA39329B0CD7200987057 /* VideoCardView.swift in Sources */,
 				AC9D57EC29A79AD0003F7486 /* Onboarding_Netfulix.swift in Sources */,
 				AC1D18A6299B93A100ADB9A0 /* OnboardingPage_sec.swift in Sources */,
 				ACC26D7729912DAA00BCECEA /* MovieListView.swift in Sources */,
