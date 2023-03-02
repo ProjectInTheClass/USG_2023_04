@@ -39,45 +39,49 @@ struct MovieListView: View {
     @AppStorage("_Firstrun") var Firstrun: Bool = true
     @State var showOnboarding: Bool = true
     var body: some View {
-        VStack(alignment: .center) {
-            NavigationStack {
-                ScrollView {
-                    ForEach(moviesByGenre.keys.sorted(), id: \.self) { genre in
-                        VStack(alignment: .leading) {
-                            Text(genre)
-                                .font(.headline.bold())
-                                .padding(.horizontal)
-                                .padding(.top)
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHStack {
-                                    ForEach(moviesByGenre[genre] ?? [], id: \.self) { movie in
-                                        NavigationLink(destination: DetailView(movie: movie)) {
-                                            AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)) { image in
-                                                image.resizable()
-                                                    .frame(width: 200, height:200)
-                                                    .scaledToFit()
-                                            } placeholder: {
-                                                ProgressView()
+            
+            VStack(alignment: .center) {
+                Onboarding_Netfulix()
+                NavigationStack {
+                    
+                    ScrollView {
+                        ForEach(moviesByGenre.keys.sorted(), id: \.self) { genre in
+                            VStack(alignment: .leading) {
+                                Text(genre)
+                                    .font(.headline.bold())
+                                    .padding(.horizontal)
+                                    .padding(.top)
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack {
+                                        ForEach(moviesByGenre[genre] ?? [], id: \.self) { movie in
+                                            NavigationLink(destination: DetailView(movie: movie)) {
+                                                AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)) { image in
+                                                    image.resizable()
+                                                        .frame(width: 200, height:200)
+                                                        .aspectRatio(contentMode: .fill)
+                                                        .clipShape(Circle())
+                                                } placeholder: {
+                                                    ProgressView()
+                                                }
                                             }
                                         }
                                     }
+                                    .padding(.horizontal)
+                                    .padding(.bottom)
                                 }
-                                .padding(.horizontal)
-                                .padding(.bottom)
                             }
                         }
+                        .navigationTitle("Movie")
+                        .onAppear(perform: fetchMovieList)
                     }
-                    .navigationTitle("Movie")
-                    .onAppear(perform: fetchMovieList)
+                    .fullScreenCover(isPresented: $Firstrun) {
+                        OnboardingMainView(showOnboarding: $Firstrun)
+                    }
                 }
-                .fullScreenCover(isPresented: $Firstrun) {
-                    OnboardingMainView(showOnboarding: $Firstrun)
-                }
+                
             }
-           
-        }
+        
     }
-    
         
         
         private func fetchMovieList() {

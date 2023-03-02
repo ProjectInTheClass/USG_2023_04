@@ -11,9 +11,10 @@
 		AC1D18A6299B93A100ADB9A0 /* OnboardingPage_sec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A5299B93A100ADB9A0 /* OnboardingPage_sec.swift */; };
 		AC1D18A8299B949D00ADB9A0 /* OnboardingPage_thi.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A7299B949D00ADB9A0 /* OnboardingPage_thi.swift */; };
 		AC1D18AA299B954300ADB9A0 /* OnboardingPage_for.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D18A9299B954300ADB9A0 /* OnboardingPage_for.swift */; };
+		AC8EA38729B0C93700987057 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EA38629B0C93700987057 /* PlayerViewModel.swift */; };
+		AC8EA38B29B0C99400987057 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8EA38A29B0C99400987057 /* Model.swift */; };
 		AC9D57EC29A79AD0003F7486 /* Onboarding_Netfulix.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9D57EB29A79AD0003F7486 /* Onboarding_Netfulix.swift */; };
 		ACC26D6929912D5C00BCECEA /* Netfulix_CloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC26D6829912D5C00BCECEA /* Netfulix_CloneApp.swift */; };
-		ACC26D6B29912D5C00BCECEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC26D6A29912D5C00BCECEA /* ContentView.swift */; };
 		ACC26D6D29912D5D00BCECEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC26D6C29912D5D00BCECEA /* Assets.xcassets */; };
 		ACC26D7029912D5D00BCECEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC26D6F29912D5D00BCECEA /* Preview Assets.xcassets */; };
 		ACC26D7729912DAA00BCECEA /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC26D7629912DAA00BCECEA /* MovieListView.swift */; };
@@ -27,10 +28,11 @@
 		AC1D18A5299B93A100ADB9A0 /* OnboardingPage_sec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage_sec.swift; sourceTree = "<group>"; };
 		AC1D18A7299B949D00ADB9A0 /* OnboardingPage_thi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage_thi.swift; sourceTree = "<group>"; };
 		AC1D18A9299B954300ADB9A0 /* OnboardingPage_for.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage_for.swift; sourceTree = "<group>"; };
+		AC8EA38629B0C93700987057 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		AC8EA38A29B0C99400987057 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AC9D57EB29A79AD0003F7486 /* Onboarding_Netfulix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding_Netfulix.swift; sourceTree = "<group>"; };
 		ACC26D6529912D5C00BCECEA /* Netfulix Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netfulix Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC26D6829912D5C00BCECEA /* Netfulix_CloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netfulix_CloneApp.swift; sourceTree = "<group>"; };
-		ACC26D6A29912D5C00BCECEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ACC26D6C29912D5D00BCECEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACC26D6F29912D5D00BCECEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		ACC26D7629912DAA00BCECEA /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,22 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		AC8EA38829B0C94400987057 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC8EA38629B0C93700987057 /* PlayerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AC8EA38929B0C98000987057 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC8EA38A29B0C99400987057 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		ACC26D5C29912D5C00BCECEA = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +105,9 @@
 				ACC26D7829912DC200BCECEA /* Netfulix-Clone-Info.plist */,
 				ACC26D6829912D5C00BCECEA /* Netfulix_CloneApp.swift */,
 				ACD47AE929953BA20057C9C1 /* DetailView.swift */,
-				ACC26D6A29912D5C00BCECEA /* ContentView.swift */,
 				ACC26D7629912DAA00BCECEA /* MovieListView.swift */,
+				AC8EA38929B0C98000987057 /* Model */,
+				AC8EA38829B0C94400987057 /* ViewModel */,
 				AC1D18A4299B8DF400ADB9A0 /* Onboarding */,
 				ACC26D6C29912D5D00BCECEA /* Assets.xcassets */,
 				ACC26D6E29912D5D00BCECEA /* Preview Content */,
@@ -174,15 +193,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACC26D6B29912D5C00BCECEA /* ContentView.swift in Sources */,
 				F43A761229ACD90C0023A0A4 /* ActorModalView.swift in Sources */,
 				AC1D18A3299B8DED00ADB9A0 /* OnboardingPage_first.swift in Sources */,
 				ACC26D6929912D5C00BCECEA /* Netfulix_CloneApp.swift in Sources */,
+				AC8EA38B29B0C99400987057 /* Model.swift in Sources */,
 				AC1D18AA299B954300ADB9A0 /* OnboardingPage_for.swift in Sources */,
 				AC9D57EC29A79AD0003F7486 /* Onboarding_Netfulix.swift in Sources */,
 				AC1D18A6299B93A100ADB9A0 /* OnboardingPage_sec.swift in Sources */,
 				ACC26D7729912DAA00BCECEA /* MovieListView.swift in Sources */,
 				ACF6F07D299A7A1F005604E6 /* OnboardingMainView.swift in Sources */,
+				AC8EA38729B0C93700987057 /* PlayerViewModel.swift in Sources */,
 				ACD47AEA29953BA20057C9C1 /* DetailView.swift in Sources */,
 				AC1D18A8299B949D00ADB9A0 /* OnboardingPage_thi.swift in Sources */,
 			);

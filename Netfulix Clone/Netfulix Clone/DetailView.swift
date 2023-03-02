@@ -28,94 +28,97 @@ struct DetailView: View {
     var movie: Movie
     @State var movieDetail:MovieDetail? = nil
     @State var movieComment:[Comment]? = nil
-    
     @State var showModal = false
     
     var body: some View {
         GeometryReader { geometry in
-            VStack{
-                VStack(alignment:.leading, spacing: 0) {
-                    ZStack{
-                        AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)){
-                            image in
-                            image.resizable()
-                                .frame(width:geometry.size.width, height: 300)
-                                .opacity(0.4)
-                            
-                            
-                        }placeholder: {
-                            ProgressView()
-                        }
-                        AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)){
-                            image in
-                            image.resizable()
-                                .frame(width:150, height: 200)
-                            
-                            
-                        }placeholder: {
-                            ProgressView()
-                        }
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        Text(movie.title)
-                            .font(.largeTitle)
-                        Text(String(movieDetail?.year ?? 2021))
-                        HStack{
-                            Text("장르:")
-                            ForEach(movie.genre, id: \.self) { genre in
-                                Text(genre)
+            
+            ScrollView {
+                VStack{
+                    VStack(alignment:.leading, spacing: 0) {
+                        ZStack{
+                            AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)){
+                                image in
+                                image.resizable()
+                                    .frame(width:geometry.size.width, height: 300)
+                                    .opacity(0.4)
+                                
+                                
+                            }placeholder: {
+                                ProgressView()
+                            }
+                            AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)){
+                                image in
+                                image.resizable()
+                                    .frame(width:150, height: 200)
+                                
+                                
+                            }placeholder: {
+                                ProgressView()
                             }
                         }
-                        HStack{
-                            Text("출연: ")
-                            ForEach(movieDetail?.actors ?? [], id: \.self) {
-                                item in
-                                Text(item.name+",")
+                        
+                        VStack(alignment: .leading) {
+                            Text(movie.title)
+                                .font(.largeTitle)
+                            Text(String(movieDetail?.year ?? 2021))
+                            HStack{
+                                Text("장르:")
+                                ForEach(movie.genre, id: \.self) { genre in
+                                    Text(genre)
+                                }
+                            }
+                            HStack{
+                                Text("출연: ")
+                                ForEach(movieDetail?.actors ?? [], id: \.self) {
+                                    item in
+                                    Text(item.name+",")
+                                    
+                                }
+                                
+                                Button {
+                                    showModal = true
+                                } label: {
+                                    Text("더보기")
+                                }
+                            }
+                            
+                            
+                        }.padding()
+                            .sheet(isPresented: $showModal) {
+                                ActorModalView(isClosed: $showModal)
+                            }
+                        VStack(alignment: .leading) {
+                            Text("댓글").bold().font(.title3)
+                                .padding()
+                            
+                            ScrollView {
+                                VStack(alignment: .leading) {
+                                    ForEach(movieComment ?? [], id: \.self) {
+                                        item in
+                                        Section {
+                                            VStack {
+                                                HStack() {
+                                                    Text(item.name+":")
+                                                    Text(item.text.prefix(15)+(item.text.count > 15 ? "...":""))
+                                                    Spacer()
+                                                    Text("평점: "+String(format: "%0.1f", item.rating))
+                                                }
+                                            }//.background(Color.gray)
+                                            .padding()
+                                        }
+                                    }.border(.gray.opacity(0.3))
+                                }
                                 
                             }
-                            
-                            Button {
-                                showModal = true
-                            } label: {
-                                Text("더보기")
-                            }
                         }
-                        
-                       
-                    }.padding()
-                        .sheet(isPresented: $showModal) {
-                            ActorModalView(isClosed: $showModal)
-                        }
-                    
-                    ScrollView{
-                        VStack(alignment: .leading) {
-                            ForEach(movieComment ?? [], id: \.self) {
-                                item in
-                                VStack{
-                                    HStack(alignment: .top){
-                                        Text(item.name+":")
-                                        Text(item.text.prefix(15)+(item.text.count > 15 ? "...":""))
-                                        Spacer()
-                                        Text("평점: "+String(format: "%0.1f", item.rating))
-                                    }
-                                }//.background(Color.gray)
-  
-                            }.border(.gray.opacity(0.3))
-                        }
-                        
-                    }
-                    HStack{
-                        Text("ID: ")
-                        
-                    }
-
+                        Spacer()
+                    }.frame(maxWidth: .infinity)
                     Spacer()
-                }.frame(maxWidth: .infinity)
-                Spacer()
+                }
+                
+            }.onAppear(perform: fetchDetailList)
         }
-        
-        }.onAppear(perform: fetchDetailList)
     }
     func fetchDetailList() {
         
