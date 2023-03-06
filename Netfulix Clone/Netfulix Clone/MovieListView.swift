@@ -52,37 +52,42 @@ struct MovieListView: View {
             VStack(alignment: .center) {
                 Onboarding_Netfulix()
                 NavigationStack {
-                    NavigationLink(destination: VideoPlayView(video: videos[0])) {
-                        VideoCardView(video: videos[0])
-                    }
+                 
                     ScrollView {
-                        ForEach(moviesByGenre.keys.sorted(), id: \.self) { genre in
-                            VStack(alignment: .leading) {
-                                Text(genre)
-                                    .font(.headline.bold())
-                                    .padding(.horizontal)
-                                    .padding(.top)
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack {
-                                        ForEach(moviesByGenre[genre] ?? [], id: \.self) { movie in
-                                            NavigationLink(destination: DetailView(movie: movie)) {
-                                                AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)) { image in
-                                                    image.resizable()
-                                                        .frame(width: 200, height:200)
-                                                        .aspectRatio(contentMode: .fill)
-                                                        .clipShape(Circle())
-                                                } placeholder: {
-                                                    ProgressView()
+                        VStack{
+                            NavigationLink(destination: VideoPlayView(video: videos[0])) {
+                                VideoCardView(video: videos[0])
+                            }
+                        }
+                        VStack{
+                            ForEach(moviesByGenre.keys.sorted(), id: \.self) { genre in
+                                VStack(alignment: .leading) {
+                                    Text(genre)
+                                        .font(.headline.bold())
+                                        .padding(.horizontal)
+                                        .padding(.top)
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        LazyHStack {
+                                            ForEach(moviesByGenre[genre] ?? [], id: \.self) { movie in
+                                                NavigationLink(destination: DetailView(movie: movie)) {
+                                                    AsyncImage(url: URL(string:"http://mynf.codershigh.com:8080"+movie.image)) { image in
+                                                        image.resizable()
+                                                            .frame(width: 200, height:200)
+                                                            .aspectRatio(contentMode: .fill)
+                                                            .clipShape(Circle())
+                                                    } placeholder: {
+                                                        ProgressView()
+                                                    }
                                                 }
                                             }
                                         }
+                                        .padding(.horizontal)
+                                        .padding(.bottom)
                                     }
-                                    .padding(.horizontal)
-                                    .padding(.bottom)
                                 }
                             }
                         }
-                        .navigationTitle("Movie")
+                 
                         .onAppear(perform: fetchMovieList)
                     }
                     .fullScreenCover(isPresented: $Firstrun) {

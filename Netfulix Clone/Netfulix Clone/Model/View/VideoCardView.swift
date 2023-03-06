@@ -17,7 +17,7 @@ struct VideoCardView: View {
                     Image(uiImage: (video.thumnail))
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .cornerRadius(20)
+                        
                     
                 }
                 
